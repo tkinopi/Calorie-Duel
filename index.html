@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カロリーデュエル</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>カロリーデュエル</h1>
+        
+        <!-- プレイヤー情報 -->
+        <div class="players-area">
+            <div class="player-info" id="player1-info">
+                <h3>プレイヤー1</h3>
+                <div class="health-meter">
+                    <div class="meter-label">体調メーター</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="player1-meter"></div>
+                    </div>
+                    <div class="meter-values">
+                        <span id="player1-calories">0</span> / <span id="player1-target">2000</span> kcal
+                    </div>
+                </div>
+                <div class="status" id="player1-status">正常</div>
+            </div>
+            
+            <div class="vs">VS</div>
+            
+            <div class="player-info" id="player2-info">
+                <h3>CPU</h3>
+                <div class="health-meter">
+                    <div class="meter-label">体調メーター</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="player2-meter"></div>
+                    </div>
+                    <div class="meter-values">
+                        <span id="player2-calories">0</span> / <span id="player2-target">2000</span> kcal
+                    </div>
+                </div>
+                <div class="status" id="player2-status">正常</div>
+            </div>
+        </div>
+        
+        <!-- ゲーム情報 -->
+        <div class="game-info">
+            <div class="turn-info">
+                <span>ターン: <span id="current-turn">1</span></span>
+                <span>現在のフェーズ: <span id="current-phase">朝食</span></span>
+            </div>
+        </div>
+        
+        <!-- プレイエリア -->
+        <div class="play-area">
+            <div class="cpu-hand">
+                <div class="card-back" id="cpu-selected">CPU選択中...</div>
+            </div>
+            
+            <div class="center-area">
+                <div class="played-cards">
+                    <div class="played-card" id="player1-played"></div>
+                    <div class="played-card" id="player2-played"></div>
+                </div>
+                <button id="resolve-turn" style="display: none;">ターン実行</button>
+            </div>
+            
+            <!-- プレイヤーの手札 -->
+            <div class="player-hand">
+                <h4>あなたの手札</h4>
+                <div class="hand-cards" id="player-hand"></div>
+            </div>
+        </div>
+        
+        <!-- ゲーム開始ボタン -->
+        <div class="game-controls">
+            <button id="start-game">ゲーム開始</button>
+            <button id="reset-game" style="display: none;">リセット</button>
+        </div>
+        
+        <!-- ゲーム結果 -->
+        <div id="game-result" class="game-result" style="display: none;">
+            <h2 id="result-text"></h2>
+            <button id="new-game">新しいゲーム</button>
+        </div>
+    </div>
+    
+    <script src="cards.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
